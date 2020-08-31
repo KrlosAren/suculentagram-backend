@@ -15,6 +15,6 @@ deploy:
   keep-history: true
   github_token: $GITHUB_TOKEN
   api_key: 58b62f1a-2c6c-4c10-bed0-d47aa2a7deba
-  app: suculentragram-backend
+  app: suculentagram-backend
   on:
     repo: KrlosAren/suculentagram-backend
