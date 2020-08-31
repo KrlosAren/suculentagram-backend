@@ -1,21 +1,22 @@
 // Require packages and set the port
 const express = require('express');
-const port = 3002;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const app = express();
 
 const router = require('./utils/routes')
 
-// Use Node.js body parsing middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true,
-}));
+app.get('/', (req, res) => {
+  let userInfo = req.header("user-agent");
+  res.send(`New UserInfo: ${userInfo}`);
+});
 
-router(app)
+router(app);
 
-// Start the server
-const PORT = process.env.PORT || 8080
-app.listen(PORT, () => {
-  console.log(`server listen on port ${PORT}...`)
-})
+app.listen(port, err => {
+  if (err) {
+    console.error("Error: ", err);
+    return;
+  }
+  console.log(`Listening http://localhost:${port}`);
+});
