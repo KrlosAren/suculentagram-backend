@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 
 const userApi = require('./routes/users');
 
+app.use(cors())
 app.get('/', (req, res) => {
   let userInfo = req.header("user-agent");
   res.send(`New UserInfo: ${userInfo}`);
