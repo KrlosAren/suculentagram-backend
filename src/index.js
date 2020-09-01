@@ -1,17 +1,15 @@
-// Require packages and set the port
-const express = require('express');
-const port = process.env.PORT || 3000;
-const bodyParser = require('body-parser');
+const express = require("express");
 const app = express();
+const port = process.env.PORT || 3000;
 
-const router = require('./utils/routes')
+const userApi = require('./routes/users');
 
 app.get('/', (req, res) => {
   let userInfo = req.header("user-agent");
   res.send(`New UserInfo: ${userInfo}`);
 });
 
-router(app);
+userApi(app);
 
 app.listen(port, err => {
   if (err) {
