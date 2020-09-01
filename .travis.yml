@@ -10,7 +10,7 @@ git:
 script:
   - yarn test
 deploy:
-  provide: heroku
+  provider: heroku
   skip-cleanup: true
   keep-history: true
   github_token: $GITHUB_TOKEN
