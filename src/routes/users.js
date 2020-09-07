@@ -5,7 +5,7 @@ function userApi(app) {
     const router = express.Router();
     app.use('/users', router);
 
-    router.get('/', async (req, res, next) => {
+    router.get('/users', async (req, res, next) => {
         res.json(db);
     },
     );
