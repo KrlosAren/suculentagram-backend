@@ -2,13 +2,12 @@ const express = require('express');
 const db = require('../server/db.json');
 
 function userApi(app) {
-    const router = express.Router();
-    app.use('/users', router);
 
-    router.get('/users', async (req, res, next) => {
-        res.json(db);
-    },
-    );
-};
+    app.get('/users', (req, res) => {
+        return res.send(
+            db.users
+        )
+    })
+}
 
 module.exports = userApi;

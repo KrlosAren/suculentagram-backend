@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "nodemon ./src/index.js localhost 4500 --watch"
+    "local": "nodemon ./src/index.js localhost 4500 --watch",
+    "start": "node ./src/index.js"
   },
   "keywords": [],
   "author": "Carlos Lopez Z. <krlosaren@gmail.com>",
