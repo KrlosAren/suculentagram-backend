@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "node_modules/.bin/nodemon ./src/index.js --exec babel-node --"
+    "start": "nodemon ./src/index.js localhost 4500 --watch"
   },
   "keywords": [],
   "author": "Carlos Lopez Z. <krlosaren@gmail.com>",
