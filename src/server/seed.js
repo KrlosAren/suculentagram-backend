@@ -3,6 +3,17 @@ const fs = require('fs');
 const path = require('path');
 const md5 = require('md5');
 
+function createParagraph() {
+  const randomParagraphNumber = Math.floor(Math.random() * (30 - 1) + 5);
+  const paragraphs = [];
+  for (let i = 0; i < randomParagraphNumber; i++) {
+    paragraphs.push(
+      faker.lorem.paragraphs(),
+    );
+  }
+  return paragraphs;
+}
+
 function createPost(limit) {
   const posts = [];
 
@@ -11,7 +22,7 @@ function createPost(limit) {
       id: faker.random.uuid(),
       date: faker.date.recent(),
       title: faker.lorem.sentence(),
-      post: faker.lorem.paragraphs(),
+      post: createParagraph(),
     });
   }
   return posts;
@@ -46,9 +57,12 @@ function main() {
     users: createUser(),
   };
 
-  fs.writeFileSync(
+  fs.writeFile(
     path.resolve(__dirname, 'db.json'),
     JSON.stringify(data, null, 4),
+    () => {
+      console.log('Archivo Creado');
+    },
   );
 }
 

@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 
 const userApi = require('./routes/users');
 const userIdApi = require('./routes/id');
+const postApi = require('./routes/post');
 
 app.use(cors())
 app.get('/', (req, res) => {
@@ -19,6 +20,9 @@ app.get('/', (req, res) => {
 
 userApi(app);
 userIdApi(app)
+postApi(app)
+
+
 
 app.listen(port, err => {
   if (err) {
